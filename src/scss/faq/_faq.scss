@@ -1,0 +1,52 @@
+@use '../variables/variables' as *;
+@use '../abstracts/mixins/mixins' as *;
+@use '../abstracts/functions/functions' as *;
+
+.faq {
+  background-color: $color-stroke-light;
+  padding: px-to-rem(60px) px-to-rem(16px);
+
+  &__heading {
+    @include block-centered-horizontally;
+    min-width: px-to-rem(343px);
+
+    @media (min-width: $desktop-min) {
+      width: px-to-rem(872px);
+    }
+  }
+
+  &__title {
+    @include h2-mobile;
+    margin-top: 0;
+    margin-bottom: px-to-rem(32px);
+    text-align: center;
+
+    @media (min-width: $desktop-min) {
+      @include h2-desktop;
+      margin-bottom: px-to-rem(16px);
+    }
+  }
+
+  &__subtitle {
+    @include text-large;
+    margin-top: 0;
+    margin-bottom: px-to-rem(16px);
+    text-align: center;
+    color: $color-gray-dark;
+
+    @media (min-width: $desktop-min) {
+      margin-bottom: px-to-rem(48px);
+    }
+  }
+
+  &__item {
+    margin-bottom: px-to-rem(8px);
+    padding: px-to-rem(24px);
+
+    @media (min-width: $desktop-min) {
+      @include block-centered-horizontally;
+      margin-bottom: px-to-rem(8px);
+      width: px-to-rem(872px);
+    }
+  }
+}

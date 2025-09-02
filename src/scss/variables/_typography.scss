@@ -1,0 +1,20 @@
+@use '../abstracts/functions/functions' as *;
+
+$font-stack: 'Poppins', sans-serif;
+
+$h1-font-size-desktop: px-to-rem(48px);
+$h1-font-size-mobile: px-to-rem(30px);
+$h2-font-size-desktop: px-to-rem(30px);
+$h2-font-size-mobile: px-to-rem(24px);
+$text-large-font-size: px-to-rem(16px);
+$text-medium-font-size: px-to-rem(14px);
+
+$h1-line-height-desktop: px-to-rem(48px);
+$h1-line-height-mobile: px-to-rem(36px);
+$h2-line-height-desktop: px-to-rem(36px);
+$h2-line-height-mobile: px-to-rem(32px);
+$text-large-line-height: px-to-rem(24px);
+$text-medium-line-height: px-to-rem(20px);
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;

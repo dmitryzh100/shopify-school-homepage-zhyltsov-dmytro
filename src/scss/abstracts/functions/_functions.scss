@@ -1,0 +1,8 @@
+@use 'sass:math';
+
+@function px-to-rem($px, $base: 16px) {
+  @if math.unit($px) != "px" {
+    @error "px-to-rem() only accepts px values, got #{unit($px)}.";
+  }
+  @return calc($px / $base) * 1rem;
+}

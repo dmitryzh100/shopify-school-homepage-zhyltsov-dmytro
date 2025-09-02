@@ -1,0 +1,121 @@
+@use '../../variables/variables' as *;
+@use '../../abstracts/mixins/mixins' as *;
+@use '../../abstracts/functions/functions' as *;
+
+.popup {
+  @include absolute-centered;
+  display: none;
+  position: fixed;
+  padding: px-to-rem(60px) px-to-rem(24px);
+  background-color: $color-white;
+  border-radius: px-to-rem(16px);
+  z-index: 20;
+
+  @media (min-width: $desktop-min) {
+    width: px-to-rem(871px);
+    padding: 0;
+  }
+
+  &__container {
+    width: px-to-rem(311px);
+
+    @media (min-width: $desktop-min) {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    @media (min-width: $desktop-min) {
+      flex: 0 0 px-to-rem(399px);
+      padding: px-to-rem(60px);
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @media (min-width: $desktop-min) {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* fill by height */
+      border-top-right-radius: px-to-rem(16px);
+      border-bottom-right-radius: px-to-rem(16px);
+    }
+  }
+
+  &__title {
+    @include reset-m-p;
+    @include h1-mobile;
+    text-transform: uppercase;
+    margin-bottom: px-to-rem(16px);
+
+    @media (min-width: $desktop-min) {
+      @include h1-desktop;
+    }
+  }
+
+  &__text {
+    @include reset-m-p;
+    @include text-large;
+    color: $color-black;
+    margin-bottom: px-to-rem(48px);
+  }
+
+  &__form-group {
+    @include flex-direction-column;
+    margin-bottom: px-to-rem(16px);
+  }
+
+  &__label {
+    margin-bottom: px-to-rem(8px);
+  }
+
+  &__submit-button {
+    width: 100%;
+    padding: px-to-rem(16px);
+  }
+
+  &__close {
+    position: absolute;
+    top: px-to-rem(16px);
+    right: px-to-rem(16px);
+    width: px-to-rem(40px);
+    height: px-to-rem(40px);
+    background: $color-white;
+    border: 1px solid $color-stroke;
+    border-radius: 50%;
+    font-size: 0;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: px-to-rem(22px);
+      height: px-to-rem(1px);
+      background-color: $color-black;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--active {
+    display: flex;
+  }
+}

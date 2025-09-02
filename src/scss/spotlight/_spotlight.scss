@@ -1,0 +1,176 @@
+@use '../variables/variables' as *;
+@use '../abstracts/mixins/mixins' as *;
+@use '../abstracts/functions/functions' as *;
+
+.product-spotlight {
+  background-color: $color-white;
+  padding: px-to-rem(60px) px-to-rem(16px);
+
+  &__container {
+    @include flex-direction-column;
+
+    @media (min-width: $desktop-min) {
+      @include block-centered-horizontally;
+      flex-direction: row;
+      max-width: px-to-rem(1320px);
+    }
+  }
+
+  &__card {
+    @include flex-direction-column;
+    position: relative;
+    margin-bottom: px-to-rem(24px);
+
+    @media (min-width: $desktop-min) {
+      margin: 0;
+      order: 2;
+    }
+  }
+
+  &__image-wrapper {
+    max-width: px-to-rem(510px);
+
+    @media (min-width: $desktop-min) {
+      display: flex;
+      margin-right: px-to-rem(60px);
+      min-width: px-to-rem(536px);
+      height: px-to-rem(536px);
+    }
+  }
+
+  &__swatches {
+    display: flex;
+    max-width: px-to-rem(510px);
+    margin-bottom: px-to-rem(16px);
+    overflow-x: auto;
+
+    @media (min-width: $desktop-min) {
+      max-width: fit-content;
+      justify-content: space-between;
+      flex-direction: column;
+      margin-bottom: 0;
+      margin-right: px-to-rem(24px);
+      overflow: visible;
+      order: 1;
+
+      height: px-to-rem(536px);
+    }
+  }
+
+  &__swatch {
+    display: flex;
+    margin-right: px-to-rem(16px);
+    width: px-to-rem(88px);
+    cursor: pointer;
+    flex: 1 0 auto;
+
+    @media (min-width: $desktop-min) {
+      margin-right: 0;
+      flex: unset;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    img {
+      border-radius: px-to-rem(8px);
+      width: px-to-rem(88px);
+      height: px-to-rem(88px);
+      object-fit: cover;
+    }
+
+    &--active {
+      filter: brightness(70%);
+    }
+  }
+
+  &__details {
+    @include flex-direction-column;
+
+    @media (min-width: $desktop-min) {
+      width: 100%;
+      order: 3;
+    }
+  }
+
+  &__colors {
+    display: flex;
+    gap: px-to-rem(8px);
+    margin-bottom: px-to-rem(24px);
+
+    @media (min-width: $desktop-min) {
+      margin-bottom: px-to-rem(32px);
+      width: fit-content;
+      gap: unset;
+    }
+  }
+
+  &__color {
+    margin-right: px-to-rem(8px);
+    border-radius: px-to-rem(8px);
+
+    img {
+      border-radius: px-to-rem(8px);
+      width: px-to-rem(88px);
+      height: px-to-rem(88px);
+      object-fit: cover;
+    }
+
+    &--active {
+      border: 1px solid $color-black;
+    }
+  }
+
+  &__options {
+    @include reset-m-p;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(px-to-rem(140px), 1fr));
+    gap: px-to-rem(8px);
+    margin-bottom: px-to-rem(24px);
+    border: none;
+    width: 100%;
+
+    @media (min-width: $desktop-min) {
+      margin-bottom: px-to-rem(32px);
+    }
+  }
+
+  &__opt-button {
+    text-align: center;
+
+    padding: px-to-rem(16px);
+
+    &--active {
+      border: 1px solid $color-black;
+    }
+  }
+
+  &__add-to-bag {
+    width: 100%;
+    padding: px-to-rem(16px);
+    margin-bottom: px-to-rem(24px);
+
+    @media (min-width: $desktop-min) {
+      margin-bottom: px-to-rem(32px);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: px-to-rem(16px);
+    left: px-to-rem(16px);
+    background: $color-white;
+    padding: px-to-rem(8px);
+
+    &::before {
+      content: '★';
+    }
+  }
+
+  &__description {
+    @include reset-m-p;
+    @include text-medium;
+    color: $color-gray-dark;
+  }
+}

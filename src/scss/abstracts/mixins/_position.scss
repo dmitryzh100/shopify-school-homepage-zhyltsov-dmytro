@@ -1,0 +1,33 @@
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-centered-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin block-centered-horizontally {
+  margin: 0 auto;
+}
+
+@mixin absolute-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,23 @@
+@use '../../variables/variables' as *;
+@use '../../abstracts/functions/functions' as *;
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: px-to-rem(8px);
+
+  &--transparent {
+    @extend .button;
+    border: 1px solid $color-stroke;
+    color: $color-black;
+
+    &:active {
+      border: 1px solid $color-black;
+    }
+  }
+
+  &--dark {
+    background-color: $color-black;
+    color: $color-white;
+  }
+}

@@ -1,0 +1,51 @@
+@use '../../variables/variables' as *;
+@use '../../abstracts/mixins/mixins' as *;
+@use '../../abstracts/functions/functions' as *;
+
+.card {
+  max-width: px-to-rem(510px);
+
+  @media (min-width: $desktop-min) {
+    max-width: unset;
+  }
+
+  &__image {
+    border-radius: px-to-rem(8px);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    &--spotlight {
+      @extend .card__image;
+
+      @media (min-width: $desktop-min) {
+        height: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    @include text-large;
+    margin-top: 0;
+    margin-bottom: px-to-rem(16px);
+
+    &--h2 {
+      @extend .card__title;
+      @include h2-desktop;
+    }
+  }
+
+  &__price {
+    @include text-large;
+    color: $color-gray-dark;
+
+    &--spotlight {
+      margin-bottom: px-to-rem(24px);
+
+      @media (min-width: $desktop-min) {
+        margin-bottom: px-to-rem(32px);
+      }
+    }
+  }
+}

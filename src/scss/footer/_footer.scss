@@ -1,0 +1,97 @@
+@use '../variables/variables' as *;
+@use '../abstracts/mixins/mixins' as *;
+@use '../abstracts/functions/functions' as *;
+
+.footer {
+  padding: px-to-rem(60px) px-to-rem(16px);
+
+  @media (min-width: $desktop-min) {
+    padding: px-to-rem(60px) px-to-rem(60px) px-to-rem(24px) px-to-rem(60px);
+  }
+
+  &__container {
+    // @include block-centered-horizontally;
+    @include flex-direction-column;
+    align-items: center;
+  }
+
+  &__site-map {
+    margin-bottom: px-to-rem(48px);
+    width: 100%;
+
+    @media (min-width: $desktop-min) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      max-width: px-to-rem(1320px);
+    }
+  }
+
+  &__toggle {
+    display: none;
+
+    // Show the list when checkbox is checked
+    &:checked {
+      + .footer__label {
+        padding-bottom: px-to-rem(16px);
+      }
+      + .footer__label + .footer__list {
+        max-height: px-to-rem(500px);
+      }
+
+      + .footer__label::after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__label {
+    @include text-large;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: '>';
+    }
+  }
+
+  &__list {
+    @include flex-direction-column;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+  }
+
+  &__link {
+    color: $color-gray-dark;
+  }
+
+  &__column {
+    padding: px-to-rem(16px) 0;
+    position: relative;
+    border: 1px solid $color-stroke;
+    border-left: 0;
+    border-right: 0;
+
+    @media (min-width: $desktop-min) {
+      border: 0;
+
+      label::after {
+        display: none;
+      }
+
+      ul {
+        max-height: none;
+        padding-top: 0.5rem;
+      }
+    }
+  }
+
+  &__bottom {
+    color: $color-gray-dark;
+  }
+}

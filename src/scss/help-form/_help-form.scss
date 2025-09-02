@@ -1,0 +1,75 @@
+@use '../variables/_variables' as *;
+@use '../abstracts/mixins/mixins' as *;
+@use '../abstracts/functions/functions' as *;
+
+.help-form {
+  padding: px-to-rem(60px) px-to-rem(16px);
+  background: $color-stroke-light;
+
+  &__container {
+    @include block-centered-horizontally;
+
+    @media (min-width: $desktop-min) {
+      width: px-to-rem(872px);
+    }
+  }
+
+  &__title {
+    @include h2-mobile;
+    margin-top: 0;
+    margin-bottom: px-to-rem(32px);
+    text-align: center;
+
+    @media (min-width: $desktop-min) {
+      @include h2-desktop;
+      margin-bottom: px-to-rem(48px);
+    }
+  }
+
+  &__form {
+    @include flex-direction-column;
+
+    @media (min-width: $desktop-min) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: px-to-rem(24px);
+    }
+  }
+
+  &__form-group {
+    @include flex-direction-column;
+    margin-bottom: px-to-rem(16px);
+
+    @media (min-width: $desktop-min) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    @include text-large;
+    color: $color-black;
+    margin-bottom: px-to-rem(8px);
+  }
+
+  &__form-group:nth-child(3),
+  &__form-group:nth-child(4) {
+    @media (min-width: $desktop-min) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__submit-button {
+    @include block-centered-horizontally;
+    padding: px-to-rem(16px) px-to-rem(32px);
+    width: px-to-rem(180px);
+    background: $color-black;
+    color: $color-white;
+    border-radius: px-to-rem(8px);
+    font-weight: 600;
+    text-align: center;
+
+    @media (min-width: $desktop-min) {
+      grid-column: 1 / -1;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+@use '../variables/_variables' as *;
+@use '../abstracts/mixins/mixins' as *;
+@use '../abstracts/functions/functions' as *;
+
+.header {
+  &__logo {
+    display: none;
+    width: px-to-rem(100px);
+    height: px-to-rem(24px);
+    margin-bottom: px-to-rem(16px);
+
+    @media (min-width: $desktop-min) {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  &__container {
+    @include flex-centered-space-between;
+    position: relative;
+    padding: px-to-rem(16px);
+    background-color: $color-white;
+
+    @media (min-width: $desktop-min) {
+      padding: px-to-rem(30px) px-to-rem(60px);
+    }
+
+    // for burger menu
+    &:has(.header__checkbox:checked) {
+      @include absolute-top-left;
+      width: 100%;
+      height: auto;
+      z-index: 20;
+      justify-content: unset;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__toggle {
+    @include flex-centered;
+    width: px-to-rem(24px);
+    height: px-to-rem(18px);
+    cursor: pointer;
+
+    @media (min-width: $desktop-min) {
+      display: none;
+    }
+  }
+
+  // Show veil under the modile nav menu
+  &:has(.header__checkbox:checked) ~ .veil {
+    display: block;
+  }
+
+  // Toggle menu when checkbox is checked
+  &__checkbox:checked {
+    + .header__toggle {
+      .burger {
+        background-color: transparent;
+
+        &::before {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &::after {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+    }
+
+    ~ .header__menu {
+      display: flex;
+    }
+
+    ~ .header__mini-cart {
+      display: none;
+    }
+  }
+
+  &__mini-cart {
+    @include flex-centered;
+    color: $color-black;
+
+    @media (min-width: $desktop-min) {
+      order: 2;
+    }
+  }
+
+  &__menu {
+    display: none; // hidden by default
+    flex-direction: column;
+    padding: px-to-rem(16px);
+
+    @media (min-width: $desktop-min) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      order: 1;
+    }
+  }
+
+  .nav {
+    &__list {
+      @media (min-width: $desktop-min) {
+        display: flex;
+      }
+    }
+
+    &__item {
+      margin-bottom: px-to-rem(8px);
+
+      @media (min-width: $desktop-min) {
+        margin: 0 1rem;
+      }
+    }
+
+    &__link {
+      @include text-large;
+      line-height: unset;
+      color: $color-black;
+    }
+  }
+}
+
+// Desktop >=768px
+// @media (min-width: 768px) {
+//   .header__toggle {
+//     display: none;
+//   }
+
+//   .header__menu {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 0;
+
+//     .header__logo {
+//       margin-right: 2rem;
+//       margin-bottom: 0;
+//     }
+
+//     .nav__list {
+//       display: flex;
+
+//       .nav__item {
+//         margin: 0 1rem;
+//       }
+//     }
+//   }
+// }

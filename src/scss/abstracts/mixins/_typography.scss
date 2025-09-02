@@ -1,0 +1,39 @@
+@use '../../variables/variables' as *;
+
+@mixin h1-desktop {
+  font-size: $h1-font-size-desktop;
+  line-height: $h1-line-height-desktop;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}
+
+@mixin h1-mobile {
+  font-size: $h1-font-size-mobile;
+  line-height: $h1-line-height-mobile;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+@mixin h2-desktop {
+  font-size: $h2-font-size-desktop;
+  line-height: $h2-line-height-desktop;
+}
+
+@mixin h2-mobile {
+  font-size: $h2-font-size-mobile;
+  line-height: $h2-line-height-mobile;
+  font-weight: $font-weight-regular;
+}
+
+@mixin text-large {
+  font-size: $text-large-font-size;
+  line-height: $text-large-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: 0;
+}
+
+@mixin text-medium {
+  font-size: $text-medium-font-size;
+  line-height: $text-medium-line-height;
+}
